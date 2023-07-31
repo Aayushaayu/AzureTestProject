@@ -31,14 +31,14 @@ steps:
   inputs:
     solution: '**\*.sln'
 
-- task: VSTest@3
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+task: VSTest@2
+    inputs:
+      testSelector: 'testAssemblies'
+      testAssemblyVer2: |
+        **\*test.dll
+      searchFolder: '$(System.DefaultWorkingDirectory)'
+      distributionBatchType: basedOnExecutionTime
+      runInParallel: true
 
 - task: PublishBuildArtifacts@1
   inputs:
