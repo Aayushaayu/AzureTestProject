@@ -31,11 +31,11 @@ steps:
   inputs:
     solution: '**\*.sln'
 
-task: VSTest@2
-    inputs:
-      testSelector: 'testAssemblies'
-      testAssemblyVer2: |
-        **\*test.dll
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test.dll
       searchFolder: '$(System.DefaultWorkingDirectory)'
       distributionBatchType: basedOnExecutionTime
       runInParallel: true
